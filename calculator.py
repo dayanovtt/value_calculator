@@ -58,3 +58,12 @@ class ElectricCar(Car):
     def dynamic_cost(self, mileage: int):
         return self.power_consumption * mileage / 1000 * get_power_price()
 
+
+class Motorcycle(Car):
+    def __init__(self, name: str, price: int, fuel_economy: float,
+                 service_cost: int, insurance_cost: int, plushki: int):
+        super().__init__(name, price, fuel_economy, service_cost, insurance_cost)
+        self.plushki = plushki
+
+    def dynamic_cost(self, mileage: int):
+        return self.fuel_economy * mileage / 100 * get_gas_price()
